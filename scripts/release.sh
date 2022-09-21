@@ -41,3 +41,6 @@ git push origin "$VERSION" --force
 gh release create "$VERSION" --notes "$RELEASE_NOTES"
 gh release delete "$MAJOR" --yes
 gh release create "$MAJOR" --notes "$RELEASE_NOTES"
+
+open "https://github.com/olmesm/infrastructure-diagram-action/releases/edit/$MAJOR"
+open "https://github.com/olmesm/infrastructure-diagram-action/releases/edit/$VERSION"
