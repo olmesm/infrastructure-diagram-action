@@ -6,27 +6,32 @@ This is a GitHub Action to create and commit infrastructure diagrams using the [
 
 ```yaml
 jobs:
-  update-infrastruture-diagrams:
+  update-infrastructure-diagrams:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Infrastructure Diagrams
-        uses: olmesm/infrastructure-diagram-action@latest
+        uses: olmesm/infrastructure-diagram-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          # input_dir: _documentation/diagrams
+          # user_name: Bot
+          # user_email: default@github-bot.com
+          # commit_message: Diagrams generated with [Infrastructure Diagram Action](https://github.com/olmesm/infrastructure-diagram-action)
+          # disable_review_comment: false
 ```
 
 ### Inputs
 
-| Input                       | Description                                                                                                                                         | Default Value                                                                                                    |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| **[required]** github_token | Set a generated [GITHUB_TOKEN](https://docs.github.com/en/actions/security-guides/automatic-token-authentication) for pushing to the remote branch. |                                                                                                                  |
-| debug                       | debug action                                                                                                                                        |
-| input_dir                   | Set an input directory for processing.                                                                                                              | \_documentation/diagrams                                                                                         |
-| user_name                   | Set Git user.name                                                                                                                                   | Bot                                                                                                              |
-| user_email                  | Set Git user.email                                                                                                                                  | default@github-bot.com                                                                                           |
-| commit_message              | Set a custom commit message with a triggered commit hash                                                                                            | Diagrams generated with [Infrastructure Diagram Action](https://github.com/olmesm/infrastructure-diagram-action) |
-| disable_review_comment      | Disable posting a review comment                                                                                                                    |
+| Required | Input                  | Description                                                      |
+| :------: | ---------------------- | ---------------------------------------------------------------- |
+|   yes    | github_token           | Set a generated [github_token] for pushing to the remote branch. |
+|          | debug                  | debug action                                                     |
+|          | input_dir              | Set an input directory for processing.                           |
+|          | user_name              | Set Git user.name                                                |
+|          | user_email             | Set Git user.email                                               |
+|          | commit_message         | Set a custom commit message with a triggered commit hash         |
+|          | disable_review_comment | Disable posting a review comment                                 |
 
 ---
 
@@ -51,3 +56,7 @@ sh ./scripts/release.sh "release message"
 
 - [x] Improve speed by building and hosting a release image
 - [ ] Add additional inputs listed in [action.yml](action.yml)
+
+<!-- MARKDOWN REFERENCES -->
+
+[github_token]: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
