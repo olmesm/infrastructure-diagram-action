@@ -35,4 +35,4 @@ git push --follow-tags
 
 gh release create "$VERSION" --notes "$RELEASE_NOTES"
 gh release delete "$MAJOR"
-gh release create "$MAJOR" --notes "$RELEASE_NOTES" --force
+gh release create "$MAJOR" --notes "$RELEASE_NOTES"
