@@ -30,7 +30,8 @@ sed "s|\$\$VERSION|$TAG|g" $FILE_TEMPLATE >> $FILE_OUTPUT
 git add .
 git commit -m "$RELEASE_NOTES"
 git tag -a -m "$RELEASE_NOTES" "$VERSION"
-git tag -d "$MAJOR" --force
+
+git tag -d "$MAJOR"
 git tag -a -m "$RELEASE_NOTES" "$MAJOR" --force
 git push --follow-tags
 
