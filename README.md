@@ -36,12 +36,15 @@ jobs:
 
 - [docker](https://docker.com)
 
-```bash
-# Build the image
-docker build -t infrastructure-diagram-action src/.
+### Development
 
-# Run the image
-docker run --rm -it -v $(pwd)/diagrams:/usr/src/app/diagrams -v $(pwd)/.git:/usr/src/app/.git -w /usr/src/app infrastructure-diagram-action
+1. Create a new branch and raise a PR.
+1. Check the generated diagram matches.
+
+### Release
+
+```bash
+sh ./scripts/release.sh "release message"
 ```
 
 ## TODO
