@@ -35,8 +35,8 @@ git tag -d "$MAJOR"
 git tag -a -m "$RELEASE_NOTES" "$MAJOR" --force
 
 git push --follow-tags
-git push origin "$MAJOR"
-git push origin "$VERSION"
+git push origin "$MAJOR" --force
+git push origin "$VERSION" --force
 
 gh release create "$VERSION" --notes "$RELEASE_NOTES"
 gh release delete "$MAJOR" --yes
