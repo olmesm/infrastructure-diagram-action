@@ -49,5 +49,5 @@ sh ./scripts/release.sh "release message"
 
 ## TODO
 
-- [ ] Improve speed by building and hosting a release image
-- [ ] Add additional inputs in [action.yml](action.yml)
+- [x] Improve speed by building and hosting a release image
+- [ ] Add additional inputs listed in [action.yml](action.yml)
