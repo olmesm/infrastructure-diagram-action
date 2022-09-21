@@ -1,4 +1,4 @@
-name: "Infrastructure Diagrams Action"
+name: "Infrastructure Diagrams"
 description: "Generate and Commit Infrastructure Diagrams"
 author: "olmesm"
 branding:

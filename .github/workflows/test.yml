@@ -1,10 +1,10 @@
-name: generate and commit diagrams
+name: Generate and commit diagrams
 on:
   pull_request:
     branches: [main]
 
 jobs:
-  build:
+  update-infrastruture-diagrams:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -12,4 +12,3 @@ jobs:
         uses: ./
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          debug: true
