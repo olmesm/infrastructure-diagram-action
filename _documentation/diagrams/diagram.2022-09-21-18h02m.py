@@ -10,7 +10,7 @@ from diagrams.onprem.monitoring import Grafana, Prometheus
 from diagrams.onprem.network import Nginx
 from diagrams.onprem.queue import Kafka
 
-with Diagram(name="Advanced Web Service with On-Premise (2022-09-21-18h02m)", show=False):
+with Diagram(name="Advanced Web Service with On-Premise (...)", show=False):
     ingress = Nginx("ingress")
 
     metrics = Prometheus("metric")

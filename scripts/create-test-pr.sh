@@ -15,3 +15,5 @@ sed "s|\.\.\.|$DATE_STR|" $DIR/$FILE_TEMPLATE >> $DIR/$FILE_OUTPUT
 git add .
 git commit -m "Test $DATE_STR"
 git push origin $BRANCH
+
+open https://github.com/olmesm/infrastructure-diagram-action/pull/new/$BRANCH
