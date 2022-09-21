@@ -38,8 +38,8 @@ jobs:
 
 ### Development
 
-1. Create a new branch and raise a PR.
-1. Check the generated diagram matches.
+1. Create a test branch with the script `sh scripts/create-test-pr.sh`
+1. Check the generated diagram matches [\_documentation/diagrams/diagram.template.png](_documentation/diagrams/diagram.template.png) to ensure no regression.
 
 ### Release
 
