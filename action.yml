@@ -1,0 +1,58 @@
+# Generated from action.template.yml
+
+
+name: "Infrastructure Diagrams"
+description: "Generate and Commit Infrastructure Diagrams"
+author: "olmesm"
+branding:
+  icon: "image"
+  color: "purple"
+runs:
+  using: docker
+  image: ghcr.io/olmesm/infrastructure-diagram-action:1.0.0
+inputs:
+  # TODO deploy_key:
+  #   description: "Set a SSH private key from repository secret value for pushing to the remote branch."
+  #   required: false
+  # TODO personal_token:
+  #   description: "Set a personal access token for pushing to the remote branch."
+  #   required: false
+  # TODO publish_dir:
+  #   description: "Set an destination directory for deployment."
+  #   default: _documentation/diagrams/processed
+  #   required: false
+  # TODO tag_name:
+  #   description: "Set tag name"
+  #   required: false
+  # TODO tag_message:
+  #   description: "Set tag message"
+  #   required: false
+  # TODO publish_branch:
+  #   description: "Set a target branch for deployment."
+  #   default: main
+  #   required: false
+  github_token:
+    description: "Set a generated GITHUB_TOKEN for pushing to the remote branch."
+    required: true
+  debug:
+    description: "debug action"
+    required: false
+  input_dir:
+    description: "Set an input directory for deployment."
+    default: _documentation/diagrams
+    required: false
+  user_name:
+    description: "Set Git user.name"
+    default: Bot
+    required: false
+  user_email:
+    description: "Set Git user.email"
+    default: default@github-bot.com
+    required: false
+  commit_message:
+    description: "Set a custom commit message with a triggered commit hash"
+    default: Diagrams generated with [Infrastructure Diagram Action](https://github.com/olmesm/infrastructure-diagram-action)
+    required: false
+  disable_review_comment:
+    description: "Disable posting a review comment"
+    required: false
