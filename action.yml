@@ -30,7 +30,7 @@ inputs:
   #   required: false
   github_token:
     description: "Set a generated GITHUB_TOKEN for pushing to the remote branch."
-    required: false
+    required: true
   debug:
     description: "debug action"
     required: false
