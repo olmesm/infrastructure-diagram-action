@@ -2,6 +2,8 @@
 
 RELEASE_NOTES="$1"
 VERSION=$(cat RELEASE)
+FILE_TEMPLATE="action.template.yml"
+FILE_OUTPUT="action.yml"
 
 if [[ ! $(git status --porcelain) ]]; then
   echo "[ERROR] Nothing to commit."
@@ -17,6 +19,11 @@ if [[ ! "${RELEASE_NOTES}" ]]; then
   echo "[ERROR] Please enter a RELEASE_NOTES in the form of a \"string\""
   exit 1
 fi
+
+echo "# Generated from $FILE_TEMPLATE
+
+" > $FILE_OUTPUT
+sed "s|\$\$VERSION|$VERSION|g" $FILE_TEMPLATE >> $FILE_OUTPUT
 
 git add .
 git commit -m "$RELEASE_NOTES"
