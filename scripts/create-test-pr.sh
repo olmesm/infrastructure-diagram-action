@@ -6,7 +6,7 @@ DATE_STR="`date '+%Y-%m-%d-%Hh%Mm'`"
 BRANCH="test-pr-$DATE_STR"
 FILE_OUTPUT=`echo $FILE_TEMPLATE | sed "s|example|$DATE_STR|"`
 
-# git checkout -b $BRANCH
+git checkout -b $BRANCH
 
 echo "# Generated from $DIR/$FILE_TEMPLATE
 " > $DIR/$FILE_OUTPUT
