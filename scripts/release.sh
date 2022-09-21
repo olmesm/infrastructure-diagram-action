@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 RELEASE_NOTES="$1"
-VERSION=$(cat RELEASE)
+VERSION="$(cat RELEASE)"
+TAG="$(echo $VERSION | sed 's|v||')"
 FILE_TEMPLATE="action.template.yml"
 FILE_OUTPUT="action.yml"
 
@@ -23,7 +24,7 @@ fi
 echo "# Generated from $FILE_TEMPLATE
 
 " > $FILE_OUTPUT
-sed "s|\$\$VERSION|$VERSION|g" $FILE_TEMPLATE >> $FILE_OUTPUT
+sed "s|\$\$VERSION|$TAG|g" $FILE_TEMPLATE >> $FILE_OUTPUT
 
 git add .
 git commit -m "$RELEASE_NOTES"
