@@ -5,8 +5,8 @@ branding:
   icon: "image"
   color: "orange"
 runs:
-  using: "docker"
-  image: "src/Dockerfile"
+  using: docker
+  image: ghcr.io/olmesm/infrastructure-diagram-action:main
 inputs:
   # TODO deploy_key:
   #   description: "Set a SSH private key from repository secret value for pushing to the remote branch."
