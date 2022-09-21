@@ -1,0 +1,15 @@
+name: generate and commit diagrams
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: generate and commit diagrams
+        uses: ./
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          debug: true
