@@ -24,8 +24,7 @@ fi
 echo "# Generated from $FILE_TEMPLATE
 
 " > $FILE_OUTPUT
-TAG=`echo $VERSION | sed s|v||`
-sed "s|\$\$VERSION|$VERSION|g" $FILE_TEMPLATE >> $FILE_OUTPUT
+sed "s|\$\$VERSION|$TAG|g" $FILE_TEMPLATE >> $FILE_OUTPUT
 
 git add .
 git commit -m "$RELEASE_NOTES"
