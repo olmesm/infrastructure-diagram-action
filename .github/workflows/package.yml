@@ -1,8 +1,6 @@
 name: build image
 on:
-  push:
-    branches: [main]
-  workflow_dispatch:
+  release:
 
 env:
   REGISTRY: ghcr.io
