@@ -4,7 +4,17 @@ This is a GitHub Action to create and commit infrastructure diagrams using the [
 
 ## Usage
 
+Using the syntax defined in [Diagrams](https://diagrams.mingrammer.com/), create your infrastructure diagrams in the `input_dir` of your choice (default is \_documentation/diagrams) - [example](_documentation/diagrams/diagram.example.py).
+
+Add the action to your workflow and the generated diagrams will be added to the PR branch once the workflow completes.
+
 ```yaml
+# .github/workflows/generate-and-commit-diagrams.yml
+name: Generate and commit diagrams
+on:
+  pull_request:
+    branches: [main]
+
 jobs:
   update-infrastructure-diagrams:
     runs-on: ubuntu-latest
