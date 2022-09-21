@@ -3,6 +3,7 @@
 RELEASE_NOTES="$1"
 VERSION="$(cat RELEASE)"
 TAG="$(echo $VERSION | sed 's|v||')"
+MAJOR="$(echo $VERSION | sed 's|v\([0-9]*\).*|\1|')"
 FILE_TEMPLATE="action.template.yml"
 FILE_OUTPUT="action.yml"
 
@@ -29,6 +30,8 @@ sed "s|\$\$VERSION|$TAG|g" $FILE_TEMPLATE >> $FILE_OUTPUT
 git add .
 git commit -m "$RELEASE_NOTES"
 git tag -a -m "$RELEASE_NOTES" "$VERSION"
+git tag -a -m "$RELEASE_NOTES" "$MAJOR" --force
 git push --follow-tags
 
 gh release create "$VERSION" --notes "$RELEASE_NOTES"
+gh release create "$MAJOR" --notes "$RELEASE_NOTES"

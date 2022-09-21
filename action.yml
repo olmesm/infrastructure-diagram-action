@@ -6,10 +6,10 @@ description: "Generate and Commit Infrastructure Diagrams"
 author: "olmesm"
 branding:
   icon: "image"
-  color: "orange"
+  color: "purple"
 runs:
   using: docker
-  image: ghcr.io/olmesm/infrastructure-diagram-action:1.0.6
+  image: ghcr.io/olmesm/infrastructure-diagram-action:1.0.7
 inputs:
   # TODO deploy_key:
   #   description: "Set a SSH private key from repository secret value for pushing to the remote branch."

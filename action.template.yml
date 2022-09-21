@@ -3,7 +3,7 @@ description: "Generate and Commit Infrastructure Diagrams"
 author: "olmesm"
 branding:
   icon: "image"
-  color: "orange"
+  color: "purple"
 runs:
   using: docker
   image: ghcr.io/olmesm/infrastructure-diagram-action:$$VERSION
