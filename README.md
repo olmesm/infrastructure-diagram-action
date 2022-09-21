@@ -2,9 +2,11 @@
 
 This is a GitHub Action to create and commit infrastructure diagrams using the [Diagrams](https://diagrams.mingrammer.com/) tool. This deploy action is meant to be implemented as part of your PR process. This action will also add a review comment of the changes.
 
+![Sample of Generated Infrastructure](<_documentation/diagrams/advanced_web_service_with_on-premise_(...).png>)
+
 ## Usage
 
-Using the syntax defined in [Diagrams](https://diagrams.mingrammer.com/), create your infrastructure diagrams in the `input_dir` of your choice (default is \_documentation/diagrams) - [example](_documentation/diagrams/diagram.example.py).
+Using the syntax defined in [Diagrams](https://diagrams.mingrammer.com/), create your infrastructure diagrams in the `input_dir` of your choice (default is \_documentation/diagrams) - [See this repo's example here](_documentation/diagrams/diagram.example.py)
 
 Add the action to your workflow and the generated diagrams will be added to the PR branch once the workflow completes.
 
