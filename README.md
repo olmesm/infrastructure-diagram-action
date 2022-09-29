@@ -8,7 +8,7 @@ This is a GitHub Action to create and commit infrastructure diagrams using the [
 
 Using the syntax defined in [Diagrams](https://diagrams.mingrammer.com/), create your infrastructure diagrams in the `input_dir` of your choice (default is [\_documentation/diagrams](_documentation/diagrams)).
 
-[See this repo's example here](_documentation/diagrams/diagram.example.py)
+[See this repo's example here](_documentation/diagrams/diagram.example.py) for the diagram above
 
 Add the action to your workflow and the generated diagrams will be added to the PR branch once the workflow completes.
 
