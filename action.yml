@@ -9,7 +9,7 @@ branding:
   color: "purple"
 runs:
   using: docker
-  image: ghcr.io/olmesm/infrastructure-diagram-action:1.0.0
+  image: ghcr.io/olmesm/infrastructure-diagram-action:1.0.1
 inputs:
   # TODO deploy_key:
   #   description: "Set a SSH private key from repository secret value for pushing to the remote branch."
