@@ -22,7 +22,6 @@ function error(){
 debug "Start script"
 
 debug "Start Validation"
-# Validation
 if [[ ! "${GITHUB_BASE_REF}" ]]; then
   error "This action is only for pull-request events."
 fi
@@ -33,7 +32,6 @@ fi
 debug "End Validation"
 
 debug "Start Generate"
-# Generate
 git config --global --add safe.directory ${GITHUB_WORKSPACE}
 cd ${GITHUB_WORKSPACE}/${DIR_INPUT}
 
@@ -43,9 +41,7 @@ git fetch -q
 SRC_FILES=$(git diff origin/${GITHUB_BASE_REF} --name-only | grep -E "${DIR_INPUT}.*\.(py)$" | sed "s|${DIR_INPUT}/||")
 
 if [[ "${FORCE_REGENERATE}" = "true" ]]; then
-  info ${pwd}
-  info `find /**/*.py`
-  SRC_FILES=$(find ${DIR_INPUT} "*.py" | grep -E "${DIR_INPUT}.*\.(py)$" | sed "s|${DIR_INPUT}/||")
+  SRC_FILES=$(find . -iname "*.py" | sed "s|./||")
 fi
 
 if [[ -z "${SRC_FILES}" && "${FORCE_REGENERATE}" != "true" ]]; then
@@ -73,7 +69,6 @@ done
 debug "End generate"
 
 debug "Start Commit"
-# Commit
 if [[ ! $(git status --porcelain) ]]; then
   exit 0
 fi
@@ -90,7 +85,6 @@ info "Committed diagrams"
 debug "End Commit"
 
 debug "Start Add review comment"
-# Add review comment
 if [[ "${INPUT_DISABLE_REVIEW_COMMENT}" = "true" ]]; then
   exit 0
 fi
