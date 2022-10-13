@@ -35,7 +35,7 @@ inputs:
     description: "debug action"
     required: false
   force_regenerate: 
-    description: "Force regeneration of all images. Increases commit size and uses build minutes."
+    description: "Force regeneration of all images. Increases build minutes used. Will only commit if the hash of the output image is different."
     required: false
   input_dir:
     description: "Set an input directory for deployment."
