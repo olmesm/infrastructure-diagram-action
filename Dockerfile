@@ -1,7 +1,7 @@
 # Generated from Dockerfile.template
 
 
-FROM ghcr.io/olmesm/infrastructure-diagram-action:1.0.8
+FROM ghcr.io/olmesm/infrastructure-diagram-action:1.0.9
 
 WORKDIR /usr/src/app
 
