@@ -43,6 +43,8 @@ git fetch -q
 SRC_FILES=$(git diff origin/${GITHUB_BASE_REF} --name-only | grep -E "${DIR_INPUT}.*\.(py)$" | sed "s|${DIR_INPUT}/||")
 
 if [[ "${FORCE_REGENERATE}" = "true" ]]; then
+  info ${pwd}
+  info `find /**/*.py`
   SRC_FILES=$(find ${GITHUB_WORKSPACE}/${DIR_INPUT}/**/*.py | grep -E "${DIR_INPUT}.*\.(py)$" | sed "s|${DIR_INPUT}/||")
 fi
 
