@@ -4,8 +4,8 @@ RELEASE_NOTES="$1"
 VERSION="$(cat RELEASE)"
 TAG="$(echo $VERSION | sed 's|v||')"
 MAJOR="$(echo $VERSION | sed 's|v\([0-9]*\).*|v\1|')"
-FILE_TEMPLATE="action.template.yml"
-FILE_OUTPUT="action.yml"
+FILE_TEMPLATE="Dockerfile.template"
+FILE_OUTPUT="Dockerfile"
 
 if [[ ! $(git status --porcelain) ]]; then
   echo "[ERROR] Nothing to commit."

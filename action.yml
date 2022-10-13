@@ -1,6 +1,3 @@
-# Generated from action.template.yml
-
-
 name: "Infrastructure Diagrams"
 description: "Generate and Commit Infrastructure Diagrams"
 author: "olmesm"
@@ -9,7 +6,7 @@ branding:
   color: "purple"
 runs:
   using: docker
-  image: olmesm/infrastructure-diagram-action:1.0.4
+  image: Dockerfile
 inputs:
   # TODO deploy_key:
   #   description: "Set a SSH private key from repository secret value for pushing to the remote branch."

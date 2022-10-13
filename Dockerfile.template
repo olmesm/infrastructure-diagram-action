@@ -1,0 +1,7 @@
+FROM ghcr.io/olmesm/infrastructure-diagram-action:$$VERSION
+
+WORKDIR /usr/src/app
+
+COPY src/entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
