@@ -6,47 +6,52 @@ This is a GitHub Action to create and commit infrastructure diagrams using the [
 
 ## Usage
 
-Using the syntax defined in [Diagrams](https://diagrams.mingrammer.com/), create your infrastructure diagrams in the `input_dir` of your choice (default is [\_documentation/diagrams](_documentation/diagrams)).
+1. Using the syntax defined in [Diagrams](https://diagrams.mingrammer.com/), create your infrastructure diagrams in the `input_dir` of your choice (default is [\_documentation/diagrams](_documentation/diagrams)).
 
-[See this repo's example here](_documentation/diagrams/diagram.example.py) for the diagram above
+  [See this repo's example here](_documentation/diagrams/diagram.example.py) for the diagram above
 
-Add the action to your workflow and the generated diagrams will be added to the PR branch once the workflow completes.
+1. Add the action to your workflow and the generated diagrams will be added to the PR branch once the workflow completes.
 
-```yaml
-# .github/workflows/generate-and-commit-diagrams.yml
-name: Generate and commit diagrams
-on:
-  pull_request:
-    branches: [main]
+  ```yaml
+  # .github/workflows/generate-and-commit-diagrams.yml
+  name: Generate and commit diagrams
+  on:
+    pull_request:
+      branches: [main]
 
-jobs:
-  update-infrastructure-diagrams:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Infrastructure Diagrams
-        uses: olmesm/infrastructure-diagram-action@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # input_dir: _documentation/diagrams
-          # user_name: Bot
-          # user_email: default@github-bot.com
-          # commit_message: Diagrams generated with [Infrastructure Diagram Action](https://github.com/olmesm/infrastructure-diagram-action)
-          # disable_review_comment: false
-```
+  jobs:
+    update-infrastructure-diagrams:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - name: Infrastructure Diagrams
+          uses: olmesm/infrastructure-diagram-action@v1
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            # input_dir: _documentation/diagrams
+            # user_name: Bot
+            # user_email: default@github-bot.com
+            # commit_message: Diagrams generated with [Infrastructure Diagram Action](https://github.com/olmesm/infrastructure-diagram-action)
+            # disable_review_comment: false
+  ```
 
-### Inputs
+  ### Inputs
 
-| Required | Input                  | Description                                                      |
-| :------: | ---------------------- | ---------------------------------------------------------------- |
-|   yes    | github_token           | Set a generated [github_token] for pushing to the remote branch. |
-|          | debug                  | debug action                                                     |
-|          | input_dir              | Set an input directory for processing.                           |
-|          | user_name              | Set Git user.name                                                |
-|          | user_email             | Set Git user.email                                               |
-|          | commit_message         | Set a custom commit message with a triggered commit hash         |
-|          | disable_review_comment | Disable posting a review comment                                 |
+  | Required | Input                  | Description                                                      |
+  | :------: | ---------------------- | ---------------------------------------------------------------- |
+  |   yes    | github_token           | Set a generated [github_token] for pushing to the remote branch. |
+  |          | debug                  | debug action                                                     |
+  |          | input_dir              | Set an input directory for processing.                           |
+  |          | user_name              | Set Git user.name                                                |
+  |          | user_email             | Set Git user.email                                               |
+  |          | commit_message         | Set a custom commit message with a triggered commit hash         |
+  |          | disable_review_comment | Disable posting a review comment                                 |
 
+1. Reference the generated diagram in your documentation/README.md
+
+  - Use a markdown reference `![Infrastructure](_documentation/diagrams/<diagram name as per .py file>.png)`
+  - Use an HTML reference `<a href=https://github.com/<user or org>/<repository>/_documentation/diagrams/<diagram name as per .py file>.png) alt=""></a>`
+  
 ---
 
 ## Development
