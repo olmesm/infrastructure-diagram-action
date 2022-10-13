@@ -33,7 +33,7 @@ inputs:
     required: true
   debug:
     description: "debug action"
-    required: false
+    required: true
   input_dir:
     description: "Set an input directory for deployment."
     default: _documentation/diagrams
