@@ -2,6 +2,7 @@
 
 DIR_INPUT=${INPUT_INPUT_DIR}
 COMMIT_MSG=${INPUT_COMMIT_MESSAGE}
+FORCE_REGENERATE=${INPUT_FORCE_REGENERATE}
 
 function debug(){
   if [[ "${INPUT_DEBUG}" = "true" ]]; then
@@ -40,12 +41,33 @@ debug "GITHUB_WORKSPACE/DIR_INPUT: ${GITHUB_WORKSPACE}/${DIR_INPUT}"
 git fetch -q
 
 SRC_FILES=$(git diff origin/${GITHUB_BASE_REF} --name-only | grep -E "${DIR_INPUT}.*\.(py)$" | sed "s|${DIR_INPUT}/||")
+
+if [[ "${FORCE_REGENERATE}" = "true" ]]; then
+  SRC_FILES=$(find ${DIR_INPUT}/**/*.py | grep -E "${DIR_INPUT}.*\.(py)$" | sed "s|${DIR_INPUT}/||")
+fi
+
+if [[ -z "${SRC_FILES}" && "${FORCE_REGENERATE}" != "true" ]]; then
+  info "No changes detected in ${DIR_INPUT}"
+
+  info "Force re-generate all by adding 
+  uses: olmesm/infrastructure-diagram-action@v1
+  with:
+    force_regenerate: true
+    ...
+    "
+fi
+
+if [[ -z "$SRC_FILES" ]]; then
+  info "No files found in ${DIR_INPUT}"
+fi
+
 debug "SRC_FILES: $SRC_FILES"
 
 for SRC_FILE in ${SRC_FILES}; do
     python "$SRC_FILE"
     info "Processed $DIR_INPUT/$SRC_FILE"
 done
+
 debug "End generate"
 
 debug "Start Commit"

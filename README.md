@@ -50,15 +50,17 @@ This is a GitHub Action to create and commit infrastructure diagrams using the [
 
 ### Inputs
 
-| Required | Input                  | Description                                                      |
-| :------: | ---------------------- | ---------------------------------------------------------------- |
-|   yes    | github_token           | Set a generated [github_token] for pushing to the remote branch. |
-|          | debug                  | debug action                                                     |
-|          | input_dir              | Set an input directory for processing.                           |
-|          | user_name              | Set Git user.name                                                |
-|          | user_email             | Set Git user.email                                               |
-|          | commit_message         | Set a custom commit message with a triggered commit hash         |
-|          | disable_review_comment | Disable posting a review comment                                 |
+| Required | Input                  | Description                                                                     |
+| :------: | ---------------------- | ------------------------------------------------------------------------------- |
+|   yes    | github_token           | Set a generated [github_token] for pushing to the remote branch.                |
+|          | debug                  | debug action                                                                    |
+|          | input_dir              | Set an input directory for processing.                                          |
+|          | user_name              | Set Git user.name                                                               |
+|          | user_email             | Set Git user.email                                                              |
+|          | commit_message         | Set a custom commit message with a triggered commit hash                        |
+|          | disable_review_comment | Disable posting a review comment                                                |
+|          | force_regnerate        | Force regeneration of all images. Increases commit size and uses build minutes. |
+|          | debug                  | Enable debugging.                                                               |
   
 ---
 
