@@ -16,8 +16,7 @@ git --version && \
     git config --global init.defaultBranch
 
 # Install pip packages
-# diagrams==0.21.1
-pip install diagrams
+pip install diagrams==0.25.1
 
 # Clean pip cache
 rm -rf ~/.cache/pip/*

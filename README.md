@@ -23,7 +23,7 @@ This is a GitHub Action to create and commit infrastructure diagrams using the [
      update-infrastructure-diagrams:
        runs-on: ubuntu-latest
        steps:
-         - uses: actions/checkout@v3
+         - uses: actions/checkout@v6
          - name: Infrastructure Diagrams
            uses: olmesm/infrastructure-diagram-action@v1
            with:
